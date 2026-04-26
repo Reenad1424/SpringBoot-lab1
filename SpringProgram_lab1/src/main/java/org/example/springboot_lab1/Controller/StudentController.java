@@ -49,7 +49,7 @@ public class StudentController {
 
     // 5. Classify students into honors categories based on GPA
     @GetMapping("/honors")
-    public String getHonors() {
+    public ApiResponse getHonors() {
         ArrayList<Student> firstHonor = new ArrayList<>();
         ArrayList<Student> secondHonor = new ArrayList<>();
 
@@ -61,7 +61,7 @@ public class StudentController {
                 secondHonor.add(students.get(i));
             }
         }
-        return "First Honor: " + firstHonor + "\nSecond Honor: " + secondHonor;
+        return new ApiResponse("First Honor: " + firstHonor + "\nSecond Honor: " + secondHonor);
     }
 
     // 6. Display students whose GPA is greater than the average GPA
